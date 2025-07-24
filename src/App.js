@@ -1,89 +1,86 @@
 import React, { useState } from 'react';
 
-// SVG icons for sidebar (Font Awesome/Feather/Custom SVGs)
-const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => (
-  <>
-    {/* Desktop Sidebar */}
-    <aside className="hidden md:flex fixed top-0 left-0 h-full flex-col items-center z-20 ml-2 md:ml-4">
-      <div className="w-px h-24 md:h-32 bg-gray-600 mb-8 mt-0" />
-      <button type="button" className="mb-8 md:mb-10 text-gray-400 hover:text-purple-400" title="GitHub">
-      {/* icon */}
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-github" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"></path></svg>
-    </button>
-      <button type="button" className="mb-8 md:mb-10 text-gray-400 hover:text-purple-400" title="Dribbble">
-      {/* Dribbble icon */}
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-dribbble" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2.05 13h19.9M8.21 2.05a10 10 0 015.58 19.9M17.74 6.26a10 10 0 01-11.48 11.48"></path></svg>
-    </button>
-      <button type="button" className="mb-8 md:mb-10 text-gray-400 hover:text-purple-400" title="Key">
-      {/* Key icon */}
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-key" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.5 7.5a5 5 0 11-7.07 7.07 5 5 0 017.07-7.07zm0 0L17 3m-2 2l2 2"></path></svg>
-    </button>
-  </aside>
-    {/* Mobile Sidebar Toggle */}
-    <button
-      className="md:hidden fixed top-4 left-4 z-30 bg-[#23252b] border border-gray-600 rounded p-2 text-gray-400 hover:text-purple-400"
-      onClick={() => setIsMobileOpen(!isMobileOpen)}
-      aria-label="Open sidebar"
-    >
-      <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
-    </button>
-    {/* Mobile Sidebar Drawer */}
-    {isMobileOpen && (
-      <div className="md:hidden fixed inset-0 bg-black bg-opacity-60 z-40 flex">
-        <aside className="w-20 flex flex-col items-center bg-[#23252b] h-full pt-8 z-50">
-          <button type="button" className="mb-8 text-gray-400 hover:text-purple-400" title="GitHub">
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-github" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"></path></svg>
-          </button>
-          <button type="button" className="mb-8 text-gray-400 hover:text-purple-400" title="Dribbble">
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-dribbble" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2.05 13h19.9M8.21 2.05a10 10 0 015.58 19.9M17.74 6.26a10 10 0 01-11.48 11.48"></path></svg>
-          </button>
-          <button type="button" className="mb-8 text-gray-400 hover:text-purple-400" title="Key">
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-key" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.5 7.5a5 5 0 11-7.07 7.07 5 5 0 017.07-7.07zm0 0L17 3m-2 2l2 2"></path></svg>
-          </button>
-          <button
-            className="mt-auto mb-8 text-gray-400 hover:text-purple-400"
-            onClick={() => setIsMobileOpen(false)}
-            aria-label="Close sidebar"
-          >
-            <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
-        </aside>
-        <div className="flex-1" onClick={() => setIsMobileOpen(false)} />
-      </div>
-    )}
-  </>
+// SVG icons for social links
+const GitHubIcon = () => (
+  <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+);
+const DribbbleIcon = () => (
+  <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2.05 13h19.9M8.21 2.05a10 10 0 015.58 19.9M17.74 6.26a10 10 0 01-11.48 11.48"/></svg>
+);
+const FramerIcon = () => (
+  <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1zm0 8h12a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z"/></svg>
 );
 
+const navLinks = [
+  { href: '#home', label: 'home' },
+  { href: '#works', label: 'works' },
+  { href: '#about-me', label: 'about-me' },
+  { href: '#contacts', label: 'contacts' },
+];
+
+function MobileSidebar({ open, onClose, active }) {
+  return (
+    <div className={`fixed inset-0 z-50 bg-[#2a2c33] transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} md:hidden flex flex-col`}>
+      <div className="flex items-center justify-between px-5 pt-5 pb-8">
+        <span className="font-mono font-bold text-lg text-white flex items-center">
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /></svg>
+          Elias
+        </span>
+        <button onClick={onClose} aria-label="Close sidebar">
+          <svg className="w-7 h-7 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+      <nav className="flex-1 flex flex-col gap-6 px-8 pt-2">
+        {navLinks.map(link => (
+          <a
+            key={link.href}
+            href={link.href}
+            className={`font-mono text-2xl font-bold ${active === link.href ? 'text-white' : 'text-purple-400'} transition`}
+            onClick={onClose}
+          >
+            #{link.label}
+          </a>
+        ))}
+      </nav>
+      <div className="flex justify-center gap-8 pb-8 mt-auto">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><GitHubIcon /></a>
+        <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><DribbbleIcon /></a>
+        <a href="https://framer.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><FramerIcon /></a>
+      </div>
+    </div>
+  );
+}
+
 function App() {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#23252b] text-gray-100 font-mono relative overflow-x-hidden">
-      {/* Sidebar */}
-      <Sidebar isMobileOpen={isMobileOpen} setIsMobileOpen={setIsMobileOpen} />
-      {/* Header & Navigation */}
-      <header className="flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 pt-6 md:pt-8 pb-4 w-full">
-        <div className="flex items-center space-x-2 font-bold text-lg tracking-widest mb-4 md:mb-0">
-          <svg className="w-5 h-5 text-gray-100" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /></svg>
+      {/* Mobile Sidebar */}
+      <MobileSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      {/* Header */}
+      <header className="flex items-center justify-between px-5 pt-5 w-full">
+        <span className="font-mono font-bold text-lg text-white flex items-center">
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /></svg>
           Alex
-        </div>
-        <div className="flex-1 flex flex-col md:flex-row justify-end items-center w-full md:w-auto">
-          <nav className="space-x-4 sm:space-x-6 md:space-x-8 text-sm flex items-center mb-2 md:mb-0">
-            <a href="#home" className="font-mono font-bold">
-              <span className="text-purple-400">#</span><span className="text-white">home</span>
-            </a>
-            <a href="#projects" className="font-mono group">
-              <span className="text-purple-400">#</span><span className="text-gray-400 group-hover:text-white">projects</span>
-            </a>
-            <a href="#about-me" className="font-mono group">
-              <span className="text-purple-400">#</span><span className="text-gray-400 group-hover:text-white">about-me</span>
-            </a>
-            <a href="#contacts" className="font-mono group">
-              <span className="text-purple-400">#</span><span className="text-gray-400 group-hover:text-white">contacts</span>
-            </a>
-          </nav>
-        </div>
+        </span>
+        {/* Desktop nav links - show at md and up */}
+        <nav className="hidden md:flex space-x-8 text-sm items-center">
+          <a href="#home" className="font-mono font-bold text-purple-400 hover:text-white transition">#home</a>
+          <a href="#projects" className="font-mono font-bold text-purple-400 hover:text-white transition">#projects</a>
+          <a href="#about-me" className="font-mono font-bold text-purple-400 hover:text-white transition">#about-me</a>
+          <a href="#contacts" className="font-mono font-bold text-purple-400 hover:text-white transition">#contacts</a>
+        </nav>
+        {/* Hamburger for mobile/tablet (show below md) */}
+        <button
+          className="md:hidden text-gray-400 hover:text-white focus:outline-none"
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Open sidebar"
+        >
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
       </header>
-      {/* Hero Section */}
+      {/* Hero Section (revert to md: breakpoints) */}
       <section className="flex flex-col md:flex-row items-start max-w-6xl mx-auto pt-10 md:pt-16 pb-8 px-4 sm:px-8 md:px-0 relative z-10" id="hero">
         {/* Left: Text */}
         <div className="flex-1 pt-4 md:pt-8 px-0 md:px-8 w-full">
